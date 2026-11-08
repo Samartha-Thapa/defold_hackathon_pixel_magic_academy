@@ -1,0 +1,123 @@
+animations {
+  id: "idle"
+  images {
+    image: "/assets/player_avatar/up/Apprentice_Wizard_Sprite_Sheet_up1.png"
+  }
+  playback: PLAYBACK_LOOP_FORWARD
+}
+animations {
+  id: "up"
+  images {
+    image: "/assets/player_avatar/up/Apprentice_Wizard_Sprite_Sheet_up1.png"
+  }
+  images {
+    image: "/assets/player_avatar/up/Apprentice_Wizard_Sprite_Sheet_up2.png"
+  }
+  images {
+    image: "/assets/player_avatar/up/Apprentice_Wizard_Sprite_Sheet_up3.png"
+  }
+  images {
+    image: "/assets/player_avatar/up/Apprentice_Wizard_Sprite_Sheet_up4.png"
+  }
+  images {
+    image: "/assets/player_avatar/up/Apprentice_Wizard_Sprite_Sheet_up5.png"
+  }
+  images {
+    image: "/assets/player_avatar/up/Apprentice_Wizard_Sprite_Sheet_up6.png"
+  }
+  images {
+    image: "/assets/player_avatar/up/Apprentice_Wizard_Sprite_Sheet_up7.png"
+  }
+  images {
+    image: "/assets/player_avatar/up/Apprentice_Wizard_Sprite_Sheet_up8.png"
+  }
+  images {
+    image: "/assets/player_avatar/up/Apprentice_Wizard_Sprite_Sheet_up1.png"
+  }
+  playback: PLAYBACK_LOOP_FORWARD
+}
+animations {
+  id: "down"
+  images {
+    image: "/assets/player_avatar/down/Apprentice_Wizard_Sprite_Sheet_down1.png"
+  }
+  images {
+    image: "/assets/player_avatar/down/Apprentice_Wizard_Sprite_Sheet_down2.png"
+  }
+  images {
+    image: "/assets/player_avatar/down/Apprentice_Wizard_Sprite_Sheet_down3.png"
+  }
+  images {
+    image: "/assets/player_avatar/down/Apprentice_Wizard_Sprite_Sheet_down4.png"
+  }
+  images {
+    image: "/assets/player_avatar/down/Apprentice_Wizard_Sprite_Sheet_down5.png"
+  }
+  images {
+    image: "/assets/player_avatar/down/Apprentice_Wizard_Sprite_Sheet_down6.png"
+  }
+  images {
+    image: "/assets/player_avatar/down/Apprentice_Wizard_Sprite_Sheet_down7.png"
+  }
+  images {
+    image: "/assets/player_avatar/down/Apprentice_Wizard_Sprite_Sheet_down8.png"
+  }
+  playback: PLAYBACK_LOOP_FORWARD
+}
+animations {
+  id: "left"
+  images {
+    image: "/assets/player_avatar/left/Apprentice_Wizard_Sprite_Sheet_left1.png"
+  }
+  images {
+    image: "/assets/player_avatar/left/Apprentice_Wizard_Sprite_Sheet_left2.png"
+  }
+  images {
+    image: "/assets/player_avatar/left/Apprentice_Wizard_Sprite_Sheet_left3.png"
+  }
+  images {
+    image: "/assets/player_avatar/left/Apprentice_Wizard_Sprite_Sheet_left4.png"
+  }
+  images {
+    image: "/assets/player_avatar/left/Apprentice_Wizard_Sprite_Sheet_left5.png"
+  }
+  images {
+    image: "/assets/player_avatar/left/Apprentice_Wizard_Sprite_Sheet_left6.png"
+  }
+  images {
+    image: "/assets/player_avatar/left/Apprentice_Wizard_Sprite_Sheet_left7.png"
+  }
+  images {
+    image: "/assets/player_avatar/left/Apprentice_Wizard_Sprite_Sheet_left8.png"
+  }
+  playback: PLAYBACK_LOOP_FORWARD
+}
+animations {
+  id: "right"
+  images {
+    image: "/assets/player_avatar/right/Apprentice_Wizard_Sprite_Sheet_right1.png"
+  }
+  images {
+    image: "/assets/player_avatar/right/Apprentice_Wizard_Sprite_Sheet_right2.png"
+  }
+  images {
+    image: "/assets/player_avatar/right/Apprentice_Wizard_Sprite_Sheet_right3.png"
+  }
+  images {
+    image: "/assets/player_avatar/right/Apprentice_Wizard_Sprite_Sheet_right4.png"
+  }
+  images {
+    image: "/assets/player_avatar/right/Apprentice_Wizard_Sprite_Sheet_right5.png"
+  }
+  images {
+    image: "/assets/player_avatar/right/Apprentice_Wizard_Sprite_Sheet_right6.png"
+  }
+  images {
+    image: "/assets/player_avatar/right/Apprentice_Wizard_Sprite_Sheet_right7.png"
+  }
+  images {
+    image: "/assets/player_avatar/right/Apprentice_Wizard_Sprite_Sheet_right8.png"
+  }
+  playback: PLAYBACK_LOOP_FORWARD
+}
+extrude_borders: 2

@@ -1,0 +1,35 @@
+name: "main"
+instances {
+  id: "player"
+  prototype: "/main/player.go"
+  position {
+    x: 471.23883
+    y: 318.48654
+    z: 1.0
+  }
+  scale3 {
+    x: 0.269966
+    y: 0.215021
+  }
+}
+scale_along_z: 0
+embedded_instances {
+  id: "academy_court_yard_map"
+  data: "components {\n"
+  "  id: \"pixelacademycourtyard\"\n"
+  "  component: \"/assets/tiles/pixelacademycourtyard.tilemap\"\n"
+  "}\n"
+  "embedded_components {\n"
+  "  id: \"collisionobject\"\n"
+  "  type: \"collisionobject\"\n"
+  "  data: \"collision_shape: \\\"/assets/tiles/pixelacademycourtyard.tilemap\\\"\\n"
+  "type: COLLISION_OBJECT_TYPE_STATIC\\n"
+  "mass: 0.0\\n"
+  "friction: 0.1\\n"
+  "restitution: 0.5\\n"
+  "group: \\\"world\\\"\\n"
+  "mask: \\\"player\\\"\\n"
+  "\"\n"
+  "}\n"
+  ""
+}
