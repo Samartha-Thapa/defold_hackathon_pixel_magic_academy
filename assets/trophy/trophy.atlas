@@ -1,0 +1,8 @@
+animations {
+  id: "New Animation"
+  images {
+    image: "/assets/trophy/Golden_Trophy_Achievement_Grid_11.png"
+  }
+  playback: PLAYBACK_LOOP_FORWARD
+}
+extrude_borders: 2

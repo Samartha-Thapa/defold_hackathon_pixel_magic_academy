@@ -1,0 +1,47 @@
+function init(self)
+	-- Add initialization code here
+	-- Learn more: https://defold.com/manuals/script/
+	-- Remove this function if not needed
+end
+
+function final(self)
+	-- Add finalization code here
+	-- Learn more: https://defold.com/manuals/script/
+	-- Remove this function if not needed
+end
+
+function update(self, dt)
+	-- Add update code here
+	-- Learn more: https://defold.com/manuals/script/
+	-- Remove this function if not needed
+end
+
+function on_message(self, message_id, message, sender)
+	if message_id == hash("update_hud") then
+		local mana = message.mana or 100
+		local books = message.books or 0
+		-- Mana bar shrinks as mana drops, 200 is full width
+		local fill = gui.get_node("mana_fill")
+		gui.set_size(fill, vmath.vector3(200 * mana / 100, 20, 0))
+		gui.set_text(gui.get_node("mana_text"), "Mana " .. math.floor(mana))
+		gui.set_text(gui.get_node("books_text"), "Books " .. books .. "/3")
+	end
+end
+
+function on_input(self, action_id, action)
+	-- Add input-handling code here. The game object this script is attached to
+	-- must have acquired input focus:
+	--
+	--    msg.post(".", "acquire_input_focus")
+	--
+	-- All mapped input bindings will be received. Mouse and touch input will
+	-- be received regardless of where on the screen it happened.
+	-- Learn more: https://defold.com/manuals/input/
+	-- Remove this function if not needed
+end
+
+function on_reload(self)
+	-- Add reload-handling code here
+	-- Learn more: https://defold.com/manuals/hot-reload/
+	-- Remove this function if not needed
+end

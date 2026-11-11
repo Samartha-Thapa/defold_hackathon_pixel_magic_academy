@@ -1,0 +1,8 @@
+animations {
+  id: "New Animation"
+  images {
+    image: "/assets/spells/fireball/Pixel_Art_Fireball_Animation_Sheet_07.png"
+  }
+  playback: PLAYBACK_LOOP_FORWARD
+}
+extrude_borders: 2

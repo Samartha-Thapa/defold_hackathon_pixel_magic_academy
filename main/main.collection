@@ -1,28 +1,206 @@
 name: "main"
 instances {
   id: "player"
-  prototype: "/main/player.go"
+  prototype: "/main/player/player.go"
   position {
     x: 471.23883
-    y: 318.48654
+    y: 262.48654
     z: 1.0
   }
   scale3 {
-    x: 0.269966
-    y: 0.215021
+    x: 0.22547
+    y: 0.168019
+  }
+}
+instances {
+  id: "headmaster"
+  prototype: "/main/headmaster/headmaster.go"
+  position {
+    x: 403.0
+    y: 900.0
+    z: 1.0
+  }
+  scale3 {
+    x: 0.468881
+    y: 0.426672
+    z: 1.787536
+  }
+}
+instances {
+  id: "book"
+  prototype: "/main/book/book.go"
+  position {
+    x: -239.92131
+    y: 816.5643
+    z: 1.0
+  }
+  scale3 {
+    x: 0.202309
+    y: 0.190694
+  }
+}
+instances {
+  id: "book1"
+  prototype: "/main/book/book.go"
+  position {
+    x: -90.19788
+    y: 170.0
+    z: 1.0
+  }
+  scale3 {
+    x: 0.202309
+    y: 0.190694
+  }
+}
+instances {
+  id: "book2"
+  prototype: "/main/book/book.go"
+  position {
+    x: 1111.4081
+    y: 220.0
+    z: 1.0
+  }
+  scale3 {
+    x: 0.202309
+    y: 0.190694
+  }
+}
+instances {
+  id: "slime"
+  prototype: "/main/slime/slime.go"
+  position {
+    x: -31.041176
+    y: 663.43823
+    z: 1.0
+  }
+  scale3 {
+    x: 0.287025
+    y: 0.469992
+  }
+}
+instances {
+  id: "slime1"
+  prototype: "/main/slime/slime.go"
+  position {
+    x: -104.041176
+    y: 614.43823
+    z: 1.0
+  }
+  scale3 {
+    x: 0.287025
+    y: 0.469992
+  }
+}
+instances {
+  id: "slime2"
+  prototype: "/main/slime/slime.go"
+  position {
+    x: -35.041176
+    y: 200.0
+    z: 1.0
+  }
+  scale3 {
+    x: 0.287025
+    y: 0.469992
+  }
+}
+instances {
+  id: "slime3"
+  prototype: "/main/slime/slime.go"
+  position {
+    x: -31.041176
+    y: 742.43823
+    z: 1.0
+  }
+  scale3 {
+    x: 0.287025
+    y: 0.469992
+  }
+}
+instances {
+  id: "slime4"
+  prototype: "/main/slime/slime.go"
+  position {
+    x: -31.041176
+    y: 130.0
+    z: 1.0
+  }
+  scale3 {
+    x: 0.287025
+    y: 0.469992
+  }
+}
+instances {
+  id: "slime5"
+  prototype: "/main/slime/slime.go"
+  position {
+    x: 20.0
+    y: 160.0
+    z: 1.0
+  }
+  scale3 {
+    x: 0.287025
+    y: 0.469992
+  }
+}
+instances {
+  id: "slime6"
+  prototype: "/main/slime/slime.go"
+  position {
+    x: 1035.9589
+    y: 220.0
+    z: 1.0
+  }
+  scale3 {
+    x: 0.287025
+    y: 0.469992
+  }
+}
+instances {
+  id: "slime7"
+  prototype: "/main/slime/slime.go"
+  position {
+    x: 950.9588
+    y: 240.0
+    z: 1.0
+  }
+  scale3 {
+    x: 0.287025
+    y: 0.469992
+  }
+}
+instances {
+  id: "slime8"
+  prototype: "/main/slime/slime.go"
+  position {
+    x: 969.9588
+    y: 150.0
+    z: 1.0
+  }
+  scale3 {
+    x: 0.287025
+    y: 0.469992
   }
 }
 scale_along_z: 0
 embedded_instances {
   id: "academy_court_yard_map"
+  children: "slime1"
+  children: "slime2"
+  children: "slime3"
+  children: "slime4"
+  children: "slime5"
+  children: "slime6"
+  children: "slime7"
+  children: "slime8"
   data: "components {\n"
   "  id: \"pixelacademycourtyard\"\n"
-  "  component: \"/assets/tiles/pixelacademycourtyard.tilemap\"\n"
+  "  component: \"/assets/tiles/Enchanted Academy Town and Forest Path.tilemap\"\n"
   "}\n"
   "embedded_components {\n"
   "  id: \"collisionobject\"\n"
   "  type: \"collisionobject\"\n"
-  "  data: \"collision_shape: \\\"/assets/tiles/pixelacademycourtyard.tilemap\\\"\\n"
+  "  data: \"collision_shape: \\\"/assets/tiles/Enchanted Academy Town and Forest Path.tilemap\\\"\\n"
   "type: COLLISION_OBJECT_TYPE_STATIC\\n"
   "mass: 0.0\\n"
   "friction: 0.1\\n"
@@ -30,6 +208,36 @@ embedded_instances {
   "group: \\\"world\\\"\\n"
   "mask: \\\"player\\\"\\n"
   "\"\n"
+  "}\n"
+  ""
+  position {
+    y: 8.0
+  }
+}
+embedded_instances {
+  id: "ui"
+  data: "components {\n"
+  "  id: \"dialogue\"\n"
+  "  component: \"/main/headmaster/headmaster_dialogue.gui\"\n"
+  "}\n"
+  ""
+  position {
+    z: 1.0
+  }
+}
+embedded_instances {
+  id: "hud"
+  data: "components {\n"
+  "  id: \"hud\"\n"
+  "  component: \"/main/HUD_GUI )/hud.gui\"\n"
+  "}\n"
+  ""
+}
+embedded_instances {
+  id: "win"
+  data: "components {\n"
+  "  id: \"win\"\n"
+  "  component: \"/main/win/win.gui\"\n"
   "}\n"
   ""
 }

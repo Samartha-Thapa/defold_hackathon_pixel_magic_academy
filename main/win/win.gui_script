@@ -1,0 +1,70 @@
+function init(self)
+	msg.post(".", "acquire_input_focus")
+	gui.set_enabled(gui.get_node("win_bg"), false)
+	gui.set_enabled(gui.get_node("win_border"), false)
+	gui.set_enabled(gui.get_node("win_text"), false)
+	gui.set_enabled(gui.get_node("win_subtext"), false)
+	gui.set_enabled(gui.get_node("win_image"), false)
+	gui.set_enabled(gui.get_node("restart_button"), false)
+	gui.set_enabled(gui.get_node("restart_text"), false)
+	gui.set_enabled(gui.get_node("close_button"), false)
+	gui.set_enabled(gui.get_node("close_text"), false)
+end
+
+function final(self)
+	-- Add finalization code here
+	-- Learn more: https://defold.com/manuals/script/
+	-- Remove this function if not needed
+end
+
+function update(self, dt)
+	-- Add update code here
+	-- Learn more: https://defold.com/manuals/script/
+	-- Remove this function if not needed
+end
+
+function on_message(self, message_id, message, sender)
+	if message_id == hash("show_win") then
+		gui.set_enabled(gui.get_node("win_bg"), true)
+		gui.set_enabled(gui.get_node("win_border"), true)
+		gui.set_enabled(gui.get_node("win_text"), true)
+		gui.set_enabled(gui.get_node("win_subtext"), true)
+		gui.set_enabled(gui.get_node("win_image"), true)
+		gui.set_enabled(gui.get_node("restart_button"), true)
+		gui.set_enabled(gui.get_node("restart_text"), true)
+		gui.set_enabled(gui.get_node("close_button"), true)
+		gui.set_enabled(gui.get_node("close_text"), true)
+		-- ADD ANIMATION HERE, after enabling
+		local bg = gui.get_node("win_bg")
+		gui.set_scale(bg, vmath.vector3(0.8, 0.8, 1))
+		gui.animate(bg, gui.PROP_SCALE, vmath.vector3(1, 1, 1), gui.EASING_OUTBACK, 0.4)
+		local trophy = gui.get_node("win_image")
+		gui.set_position(trophy, vmath.vector3(480, 340, 0))
+		gui.animate(trophy, gui.PROP_POSITION, vmath.vector3(480, 380, 0), gui.EASING_OUTBOUNCE, 0.6)
+	end
+end
+
+function on_input(self, action_id, action)
+	if action_id == hash("touch") and action.pressed then
+		if gui.pick_node(gui.get_node("restart_button"), action.x, action.y) then
+			sys.reboot()
+		elseif gui.pick_node(gui.get_node("close_button"), action.x, action.y) then
+			gui.set_enabled(gui.get_node("win_bg"), false)
+			gui.set_enabled(gui.get_node("win_border"), false)
+			gui.set_enabled(gui.get_node("win_text"), false)
+			gui.set_enabled(gui.get_node("win_subtext"), false)
+			gui.set_enabled(gui.get_node("win_image"), false)
+			gui.set_enabled(gui.get_node("restart_button"), false)
+			gui.set_enabled(gui.get_node("restart_text"), false)
+			gui.set_enabled(gui.get_node("close_button"), false)
+			gui.set_enabled(gui.get_node("close_text"), false)
+			msg.post("/ui#dialogue", "hide_dialogue")
+		end
+	end
+end
+
+function on_reload(self)
+	-- Add reload-handling code here
+	-- Learn more: https://defold.com/manuals/hot-reload/
+	-- Remove this function if not needed
+end

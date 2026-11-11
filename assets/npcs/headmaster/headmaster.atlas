@@ -1,0 +1,8 @@
+animations {
+  id: "idle"
+  images {
+    image: "/assets/npcs/headmaster/idle/Fantasy_Academy_NPC_Sprite_Sheet_headmaster1.png"
+  }
+  playback: PLAYBACK_LOOP_FORWARD
+}
+extrude_borders: 2
