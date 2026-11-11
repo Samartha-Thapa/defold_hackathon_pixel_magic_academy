@@ -4,6 +4,8 @@ A 2D pixel magic adventure built in Defold for a hackathon. Theme: Magic.
 Talk to the Headmaster, learn to cast fireball, fight slimes blocking the roads, recover 3 stolen spellbooks, and save Pixel Academy.
 
 Gameplay
+<img width="1280" height="800" alt="screenshot" src="https://github.com/user-attachments/assets/ae913396-5218-4741-99be-ab0855d8ba5f" />
+
 
 Screenshot: Starting courtyard. Mana bar top-left, Books counter top-right, Headmaster in front of the academy, slimes guarding the left path.
 
