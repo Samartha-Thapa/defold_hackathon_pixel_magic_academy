@@ -1,0 +1,8 @@
+animations {
+  id: "New Animation"
+  images {
+    image: "/assets/slime/Neon_Slime_Sprite_Sheet_01.png"
+  }
+  playback: PLAYBACK_LOOP_FORWARD
+}
+extrude_borders: 2

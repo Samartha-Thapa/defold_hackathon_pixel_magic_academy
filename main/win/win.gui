@@ -1,0 +1,166 @@
+script: "/main/win/win.gui_script"
+fonts {
+  name: "default"
+  font: "/builtins/fonts/default.font"
+}
+textures {
+  name: "trophy"
+  texture: "/assets/trophy/trophy.atlas"
+}
+nodes {
+  position {
+    x: 480.0
+    y: 270.0
+  }
+  size {
+    x: 660.0
+    y: 460.0
+  }
+  color {
+    y: 0.84313726
+    z: 0.0
+  }
+  type: TYPE_BOX
+  id: "win_border"
+  inherit_alpha: true
+  size_mode: SIZE_MODE_AUTO
+}
+nodes {
+  position {
+    x: 480.0
+    y: 270.0
+  }
+  size {
+    x: 600.0
+    y: 400.0
+  }
+  color {
+    x: 0.16470589
+    y: 0.101960786
+    z: 0.2901961
+  }
+  type: TYPE_BOX
+  id: "win_bg"
+  inherit_alpha: true
+  size_mode: SIZE_MODE_AUTO
+}
+nodes {
+  position {
+    x: 480.0
+    y: 280.0
+  }
+  size {
+    x: 500.0
+    y: 60.0
+  }
+  color {
+    y: 0.84313726
+    z: 0.0
+  }
+  type: TYPE_TEXT
+  text: "YOU WIN!"
+  font: "default"
+  id: "win_text"
+  inherit_alpha: true
+}
+nodes {
+  position {
+    x: 480.0
+    y: 380.0
+  }
+  scale {
+    x: 0.204332
+    y: 0.145984
+  }
+  type: TYPE_BOX
+  texture: "trophy/New Animation"
+  id: "win_image"
+  inherit_alpha: true
+  size_mode: SIZE_MODE_AUTO
+  visible: false
+}
+nodes {
+  position {
+    x: 410.0
+    y: 140.0
+  }
+  size {
+    x: 200.0
+    y: 50.0
+  }
+  color {
+    x: 0.18039216
+    y: 0.8
+    z: 0.44313726
+  }
+  type: TYPE_BOX
+  id: "restart_button"
+  inherit_alpha: true
+  size_mode: SIZE_MODE_AUTO
+}
+nodes {
+  position {
+    x: 410.0
+    y: 140.0
+  }
+  size {
+    x: 200.0
+    y: 50.0
+  }
+  type: TYPE_TEXT
+  text: "RESTART"
+  font: "default"
+  id: "restart_text"
+  inherit_alpha: true
+}
+nodes {
+  position {
+    x: 740.0
+    y: 140.0
+  }
+  size {
+    x: 40.0
+    y: 40.0
+  }
+  color {
+    x: 0.90588236
+    y: 0.29803923
+    z: 0.23529412
+  }
+  type: TYPE_BOX
+  id: "close_button"
+  inherit_alpha: true
+  size_mode: SIZE_MODE_AUTO
+}
+nodes {
+  position {
+    x: 740.0
+    y: 140.0
+  }
+  size {
+    x: 40.0
+    y: 40.0
+  }
+  type: TYPE_TEXT
+  text: "X"
+  font: "default"
+  id: "close_text"
+  inherit_alpha: true
+}
+nodes {
+  position {
+    x: 480.0
+    y: 230.0
+  }
+  size {
+    x: 500.0
+    y: 30.0
+  }
+  type: TYPE_TEXT
+  text: "You saved Pixel Academy!"
+  font: "default"
+  id: "win_subtext"
+  inherit_alpha: true
+}
+material: "/builtins/materials/gui.material"
+adjust_reference: ADJUST_REFERENCE_PARENT

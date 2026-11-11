@@ -1,0 +1,151 @@
+-- Define movement speed (pixels per second)
+local SPEED = 180
+
+
+function init(self)
+	self.facing = vmath.vector3(1, 0, 0)
+	self.mana = 100
+	self.cooldown = 0
+	-- Quest stuff, this was missing before
+	self.books = 0
+	self.quest = "none" -- none, started, done
+	self.showing_dialogue = false
+	self.dialogue_timer = 0
+	-- Tell Defold this game object wants to receive input events
+	msg.post(".", "acquire_input_focus")
+	-- Tell the engine to use our attached camera component
+	msg.post("#camera", "acquire_camera_focus")
+	-- Keep track of movement direction
+	self.dir = vmath.vector3()
+	-- Keep track of the current playing animation to prevent restarting it every frame
+	self.current_anim = nil
+	-- Keep track of what NPC we are currently touching
+	self.near_npc = nil
+end
+
+function final(self)
+	-- Add finalization code here
+	-- Learn more: https://defold.com/manuals/script/
+	-- Remove this function if not needed
+end
+
+function update(self, dt)
+	self.cooldown = self.cooldown - dt
+	if self.mana < 100 then self.mana = self.mana + 10 * dt end
+	msg.post("/hud#hud", "update_hud", { mana = self.mana, books = self.books })
+	-- Auto hide pickup message after 2 seconds
+	if self.showing_dialogue and self.dialogue_timer > 0 then
+		self.dialogue_timer = self.dialogue_timer - dt
+		if self.dialogue_timer <= 0 then
+			msg.post("/ui#dialogue", "hide_dialogue")
+			self.showing_dialogue = false
+		end
+	end
+	local anim = hash("idle")
+	if vmath.length_sqr(self.dir) > 0 then
+		self.dir = vmath.normalize(self.dir)
+		self.facing = vmath.vector3(self.dir)
+		if self.dir.y > 0 then anim = hash("up")
+		elseif self.dir.y < 0 then anim = hash("down")
+		elseif self.dir.x < 0 then anim = hash("left")
+		elseif self.dir.x > 0 then anim = hash("right")
+		end
+		local pos = go.get_position()
+		pos = pos + self.dir * SPEED * dt
+		go.set_position(pos)
+		self.dir = vmath.vector3()
+	end
+	if anim ~= self.current_anim then
+		self.current_anim = anim
+		sprite.play_flipbook("#sprite", anim)
+	end
+end
+
+-- function late_update(self, dt)
+-- end
+
+function fixed_update(self, dt)
+	-- This function is called if 'Fixed Update Frequency' is enabled in the Engine section of game.project
+	-- Can be coupled with fixed updates of the physics simulation if 'Use Fixed Timestep' is enabled in
+	-- Physics section of game.project
+	-- Add update code here
+	-- Learn more: https://defold.com/manuals/script/
+	-- Remove this function if not needed
+end
+
+function on_message(self, message_id, message, sender)
+	if message_id == hash("contact_point_response") and (message.group == hash("world") or message.group == hash("slime")) then
+		local new_pos = go.get_position()
+		new_pos = new_pos + message.normal * message.distance
+		go.set_position(new_pos)
+	elseif message_id == hash("trigger_response") then
+		print("TRIGGER", message.enter, message.group, sender)
+		if message.group == hash("npc") then
+			if message.enter then
+				self.near_npc = "headmaster"
+			else
+				self.near_npc = nil
+				msg.post("/ui#dialogue", "hide_dialogue")
+				self.showing_dialogue = false
+			end
+		elseif message.group == hash("book") and message.enter then
+			if self.quest == "started" then
+				self.books = self.books + 1
+				go.delete(message.other_id)
+				msg.post("/ui#dialogue", "show_dialogue", { text = "You found a spellbook! " .. self.books .. "/3" })
+				self.showing_dialogue = true
+				self.dialogue_timer = 2
+			else
+				msg.post("/ui#dialogue", "show_dialogue", { text = "A spellbook! Talk to the Headmaster first to start your quest." })
+				self.showing_dialogue = true
+				self.dialogue_timer = 2
+			end
+		end
+	end
+end
+
+function on_input(self, action_id, action)
+	-- Movement Keys
+	if action_id == hash("up") then self.dir.y = 1
+	elseif action_id == hash("down") then self.dir.y = -1
+	elseif action_id == hash("left") then self.dir.x = -1
+	elseif action_id == hash("right") then self.dir.x = 1
+		-- PRESS INTERACT KEY (E)
+	elseif action_id == hash("interact") and action.pressed then
+		if self.near_npc == "headmaster" then
+			if self.showing_dialogue then
+				msg.post("/ui#dialogue", "hide_dialogue")
+				self.showing_dialogue = false
+			else
+				local text = ""
+				if self.quest == "none" then
+					self.quest = "started"
+					text = "Welcome! 3 spellbooks were stolen. Find them and bring them back! Press SPACE to cast fireball."
+				elseif self.quest == "started" and self.books < 3 then
+					text = "You have " .. self.books .. "/3 spellbooks. Keep searching the courtyard!"
+				elseif self.quest == "started" and self.books >= 3 then
+					self.quest = "done"
+					-- text = "You did it! You saved Pixel Academy! YOU WIN!"
+					msg.post("/win#win", "show_win")
+				elseif self.quest == "done" then
+					text = "You are a true wizard now!"
+				end
+				msg.post("/ui#dialogue", "show_dialogue", { text = text })
+				self.showing_dialogue = true
+			end
+		end
+	elseif action_id == hash("cast") and action.pressed then
+		if self.mana >= 20 and self.cooldown <= 0 then
+			self.mana = self.mana - 20
+			self.cooldown = 0.4
+			local pos = go.get_position()
+			factory.create("#fireball_factory", pos, nil, { dir = self.facing })
+		end
+	end
+end
+
+function on_reload(self)
+	-- Add reload-handling code here
+	-- Learn more: https://defold.com/manuals/hot-reload/
+	-- Remove this function if not needed
+end

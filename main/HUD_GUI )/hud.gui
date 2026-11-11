@@ -1,0 +1,75 @@
+script: "/main/HUD_GUI )/hud.gui_script"
+fonts {
+  name: "default"
+  font: "/builtins/fonts/default.font"
+}
+nodes {
+  position {
+    x: 110.0
+    y: 505.0
+  }
+  size {
+    x: 210.0
+    y: 26.0
+  }
+  color {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  }
+  type: TYPE_BOX
+  id: "mana_bg"
+  inherit_alpha: true
+  size_mode: SIZE_MODE_AUTO
+}
+nodes {
+  position {
+    x: 10.0
+    y: 505.0
+  }
+  size {
+    x: 200.0
+    y: 20.0
+  }
+  color {
+    x: 0.0
+    y: 0.5019608
+  }
+  type: TYPE_BOX
+  id: "mana_fill"
+  pivot: PIVOT_W
+  inherit_alpha: true
+  size_mode: SIZE_MODE_AUTO
+}
+nodes {
+  position {
+    x: 110.0
+    y: 505.0
+  }
+  size {
+    x: 200.0
+    y: 20.0
+  }
+  type: TYPE_TEXT
+  text: "Mana 100"
+  font: "default"
+  id: "mana_text"
+  inherit_alpha: true
+}
+nodes {
+  position {
+    x: 850.0
+    y: 505.0
+  }
+  size {
+    x: 150.0
+    y: 20.0
+  }
+  type: TYPE_TEXT
+  text: "Books 0/3"
+  font: "default"
+  id: "books_text"
+  inherit_alpha: true
+}
+material: "/builtins/materials/gui.material"
+adjust_reference: ADJUST_REFERENCE_PARENT

@@ -1,0 +1,50 @@
+script: "/main/headmaster/headmaster_dialogue.gui_script"
+fonts {
+  name: "default"
+  font: "/builtins/fonts/default.font"
+}
+nodes {
+  position {
+    x: 482.0
+    y: 396.0
+  }
+  scale {
+    x: 4.020892
+    y: 2.663216
+  }
+  size {
+    x: 200.0
+    y: 100.0
+  }
+  color {
+    x: 0.101960786
+    y: 0.3019608
+    z: 0.101960786
+  }
+  type: TYPE_BOX
+  id: "dialogue_box"
+  inherit_alpha: true
+  size_mode: SIZE_MODE_AUTO
+}
+nodes {
+  position {
+    z: 1.0
+  }
+  scale {
+    x: 0.703474
+    y: 0.978188
+  }
+  size {
+    x: 200.0
+    y: 100.0
+  }
+  type: TYPE_TEXT
+  text: "Press E to interact"
+  font: "default"
+  id: "dialogue_text"
+  line_break: true
+  parent: "dialogue_box"
+  inherit_alpha: true
+}
+material: "/builtins/materials/gui.material"
+adjust_reference: ADJUST_REFERENCE_PARENT
