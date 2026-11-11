@@ -1,4 +1,7 @@
 Pixel Academy: The Stolen Spellbooks
+
+Play it here: https://samartha-magar.itch.io/pixel-academy
+
 A 2D pixel magic adventure built in Defold for a hackathon. Theme: Magic.
 
 Talk to the Headmaster, learn to cast fireball, fight slimes blocking the roads, recover 3 stolen spellbooks, and save Pixel Academy.
